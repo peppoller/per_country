@@ -1,0 +1,806 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="per_country Docs by pforret">
+      
+      
+      
+        <link rel="canonical" href="https://peppoller.github.io/per_country/peppol_sync/">
+      
+      
+        <link rel="prev" href="../github/">
+      
+      
+        <link rel="next" href="../report/">
+      
+      
+      <link rel="icon" href="../icon/android-chrome-192x192.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>peppol_sync.py - Peppol Data Per Country</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Quicksand";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#peppol_syncpy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Peppol Data Per Country" class="md-header__button md-logo" aria-label="Peppol Data Per Country" data-md-component="logo">
+      
+  <img src="../icon/android-chrome-192x192.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Peppol Data Per Country
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              peppol_sync.py
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../documentation/" class="md-tabs__link">
+        
+  
+    
+  
+  mkdox documentation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../github/" class="md-tabs__link">
+        
+  
+    
+  
+  GitHub action
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  peppol_sync.py
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../report/" class="md-tabs__link">
+        
+  
+    
+  
+  PEPPOL Sync Report
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sparse/" class="md-tabs__link">
+        
+  
+    
+  
+  Git Sparse Checkout
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Peppol Data Per Country" class="md-nav__button md-logo" aria-label="Peppol Data Per Country" data-md-component="logo">
+      
+  <img src="../icon/android-chrome-192x192.png" alt="logo">
+
+    </a>
+    Peppol Data Per Country
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mkdox documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    peppol_sync.py
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    peppol_sync.py
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functionality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-sync-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the sync tool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Implementation Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-efficient-xml-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory-Efficient XML Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#country-code-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Country Code Extraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Rotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup Behavior
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PEPPOL Sync Report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sparse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Sparse Checkout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="peppol_syncpy">peppol_sync.py<a class="headerlink" href="#peppol_syncpy" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The <code>peppol_sync.py</code> script is a command-line tool designed to synchronize business card data from the PEPPOL directory. It downloads a large XML file, splits it into smaller, more manageable XML files organized by country, and stores them in the <code>extracts/</code> directory.</p>
+<h2 id="command-line-usage">Command-line Usage<a class="headerlink" href="#command-line-usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>usage: peppol_sync.py [-h] [-V] [-F] [-C] [-K] [-T TMP] [-M MAX] {sync,check,download,huge}
+
+Synchronize PEPPOL export into git-managed files
+
+positional arguments:
+  {sync,check,download,huge}
+                        Action to perform
+
+options:
+  -h, --help            show this help message and exit
+  -V, --verbose         Enable verbose output
+  -F, --force           Force re-download of XML file even if it exists
+  -C, --nocleanup       Do not delete existing XML files in extracts/ before starting (default: delete)
+  -K, --keep-tmp        Keep temporary files after processing (default: delete)
+  -T, --tmp TMP         Temporary directory (default: tmp)
+  -M, --max MAX         Maximum number of bytes per output file (default: 1000000)
+</code></pre></div>
+<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
+<p>The first argument to the script must be one of the following actions:</p>
+<ul>
+<li><code>sync</code>: This is the main action. It performs the entire synchronization process, which includes downloading the XML file (if necessary) and splitting it into country-specific files.</li>
+<li><code>check</code>: This action checks the configuration and prints the temporary and extracts directories.</li>
+<li><code>download</code>: This action only downloads the PEPPOL business card XML file and saves it to the temporary directory.</li>
+<li><code>huge</code>: This action lists the largest XML files found in the <code>extracts/</code> directory.</li>
+</ul>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>-h</code>, <code>--help</code>: Shows the help message and exits.</li>
+<li><code>-V</code>, <code>--verbose</code>: Enables verbose output, providing more detailed information about the script's execution.</li>
+<li><code>-F</code>, <code>--force</code>: Forces the script to re-download the main XML file, even if a local copy already exists.</li>
+<li><code>-C</code>, <code>--nocleanup</code>: By default, the script deletes all existing XML files in the <code>extracts/</code> directory before starting a new sync. This flag prevents the cleanup, preserving the existing files.</li>
+<li><code>-K</code>, <code>--keep-tmp</code>: Prevents the script from deleting temporary files (like the downloaded XML) after processing is complete.</li>
+<li><code>-T</code>, <code>--tmp TMP</code>: Specifies the temporary directory to use for downloading files. Defaults to <code>tmp</code>.</li>
+<li><code>-M</code>, <code>--max MAX</code>: Sets the maximum size in bytes for each output XML file. When a file exceeds this size, a new one is created. Defaults to 2000000 (2MB).</li>
+</ul>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<p>The <code>PeppolSync</code> class handles the entire workflow:</p>
+<ol>
+<li>
+<p><strong>Download Phase</strong> (<code>download_xml()</code> at line 70)</p>
+<ul>
+<li>Streams XML from <code>https://directory.peppol.eu/export/businesscards</code></li>
+<li>Saves to <code>tmp/directory-export-business-cards.xml</code></li>
+<li>Shows progress every 100MB</li>
+<li>Skips download if file exists (override with <code>-F</code>)</li>
+</ul>
+</li>
+<li>
+<p><strong>Processing Phase</strong> (<code>process_xml()</code> at line 153)</p>
+<ul>
+<li>Uses text-based chunking (1MB chunks) for memory efficiency</li>
+<li>Parses business cards with <code>lxml.etree</code> for fast XML handling</li>
+<li>Extracts country code from <code>&lt;entity countrycode="XX"&gt;</code></li>
+<li>Extracts registration date from <code>&lt;regdate&gt;</code> for statistics</li>
+<li>Writes pretty-printed XML to country directories</li>
+</ul>
+</li>
+<li>
+<p><strong>File Splitting Logic</strong> (lines 228-250)</p>
+<ul>
+<li>Splits files when they exceed <code>max_bytes</code> (default: 2MB)</li>
+<li>Sequential naming: <code>business-cards.000001.xml</code>, <code>business-cards.000002.xml</code>, etc.</li>
+<li>Each country has its own directory: <code>extracts/BE/</code>, <code>extracts/NO/</code>, etc.</li>
+<li>Automatically creates header and footer tags for valid XML</li>
+</ul>
+</li>
+<li>
+<p><strong>Report Generation</strong> (<code>generate_report()</code> at line 269)</p>
+<ul>
+<li>Creates <code>extracts/report.md</code> with country statistics</li>
+<li>Shows file count, card count, and size per country</li>
+</ul>
+</li>
+</ol>
+<h2 id="running-the-sync-tool">Running the sync tool<a class="headerlink" href="#running-the-sync-tool" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Full sync: download + process XML (recommended for first run)</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>sync
+
+<span class="c1"># Force re-download even if file exists</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>sync<span class="w"> </span>-F
+
+<span class="c1"># Keep temporary files for debugging</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>sync<span class="w"> </span>-K
+
+<span class="c1"># Don&#39;t delete existing extracts before processing</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>sync<span class="w"> </span>-C
+
+<span class="c1"># Verbose output</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>sync<span class="w"> </span>-V
+</code></pre></div>
+<h2 id="utility-commands">Utility commands<a class="headerlink" href="#utility-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download XML only (no processing)</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>download
+
+<span class="c1"># Check configuration</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>check
+
+<span class="c1"># Show largest output files</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>huge<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+
+<span class="c1"># Custom max file size (default: 2MB)</span>
+python3<span class="w"> </span>peppol_sync.py<span class="w"> </span>sync<span class="w"> </span>-M<span class="w"> </span><span class="m">1000000</span>
+</code></pre></div>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install required Python package</span>
+pip<span class="w"> </span>install<span class="w"> </span>lxml
+</code></pre></div>
+<h2 id="key-implementation-details">Key Implementation Details<a class="headerlink" href="#key-implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="memory-efficient-xml-processing">Memory-Efficient XML Processing<a class="headerlink" href="#memory-efficient-xml-processing" title="Permanent link">&para;</a></h3>
+<p>The script processes multi-GB XML files without loading everything into memory:</p>
+<ul>
+<li>Reads in 1MB text chunks</li>
+<li>Splits on <code>&lt;/businesscard&gt;</code> delimiter</li>
+<li>Parses individual cards with lxml</li>
+<li>Uses streaming writes to output files</li>
+</ul>
+<h3 id="country-code-extraction">Country Code Extraction<a class="headerlink" href="#country-code-extraction" title="Permanent link">&para;</a></h3>
+<p>Located in <code>extract_country_from_etree()</code> (line 130):
+<div class="highlight"><pre><span></span><code><span class="n">entity</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.//entity&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">entity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">entity</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;countrycode&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="file-rotation">File Rotation<a class="headerlink" href="#file-rotation" title="Permanent link">&para;</a></h3>
+<p>When a country file exceeds <code>max_bytes</code>:</p>
+<ol>
+<li>Writes <code>&lt;/root&gt;</code> footer to close current file</li>
+<li>Increments sequence number in <code>self.file_stats[country]['sequence']</code></li>
+<li>Opens new file with updated sequence</li>
+<li>Writes XML header to new file</li>
+</ol>
+<h3 id="cleanup-behavior">Cleanup Behavior<a class="headerlink" href="#cleanup-behavior" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Temporary files</strong> (<code>tmp/</code>): Deleted after processing by default (keep with <code>-K</code>)</li>
+<li><strong>Extract files</strong> (<code>extracts/**/*.xml</code>): Deleted before each sync by default (preserve with <code>-C</code>)</li>
+<li><strong>Log file</strong> (<code>extracts/peppol_sync.log</code>): Overwritten on each run</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 per_country Docs by pforret  
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "header.autohide", "navigation.instant", "navigation.integrate", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "search.highlight", "search.suggest", "toc.integrate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
