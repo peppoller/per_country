@@ -897,10 +897,10 @@
         <name name="Al Rais Travel &amp; Shipping Agencies (L.L.C)"/>
         <regdate>2026-10-29</regdate>
       </entity>
-      <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:peppol:edec:mls:1.0::2.1" displayname="Peppol Message Level Status v1.0" state="act"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:selfbilling-1@ae-1::2.1" non-standard="true"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:selfbilling-1@ae-1::2.1" non-standard="true"/>
     </businesscard>
     <businesscard>
       <participant scheme="iso6523-actorid-upis" value="0235:1000133387"/>
@@ -6505,6 +6505,26 @@
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:selfbilling-1@ae-1*::2.1" displayname="AE PINT Self-Billing Invoice v1.0" state="act"/>
     </businesscard>
     <businesscard>
+      <participant scheme="iso6523-actorid-upis" value="0235:1003082730"/>
+      <entity countrycode="AE">
+        <name name="RAR RESIN CHEMICALS TRADING L.L.C"/>
+        <geoinfo>Umm Dearaa</geoinfo>
+        <id scheme="VAT" value="10029078200000VG"/>
+        <regdate>2026-10-28</regdate>
+      </entity>
+      <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1" displayname="Peppol BIS Billing UBL Invoice V3" state="act"/>
+      <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1" displayname="Peppol BIS Billing UBL Credit Note V3" state="act"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@jp-1::2.1" non-standard="true"/>
+      <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:xeinkauf.de:kosit:xrechnung_3.0::2.1" displayname="XRechnung UBL Invoice V3.0" state="act"/>
+      <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:xeinkauf.de:kosit:xrechnung_3.0::2.1" displayname="XRechnung UBL Credit Note V3.0" state="act"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@my-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:billing-1@my-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@aunz-1*::2.1" displayname="A-NZ PINT Invoice v1.0" state="act"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:billing-1@aunz-1*::2.1" displayname="A-NZ PINT Credit Note v1.0" state="act"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:selfbilling-1@aunz-1*::2.1" displayname="A-NZ PINT Self-Billing Invoice v1.0" state="act"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:selfbilling-1@aunz-1*::2.1" displayname="A-NZ PINT Self-Billing Credit Note v1.0" state="act"/>
+    </businesscard>
+    <businesscard>
       <participant scheme="iso6523-actorid-upis" value="0235:1003084330"/>
       <entity countrycode="AE">
         <name name="Markhor shipping line LLC"/>
@@ -9383,7 +9403,9 @@
       </entity>
       <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:peppol:edec:mls:1.0::2.1" displayname="Peppol Message Level Status v1.0" state="act"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:selfbilling-1@ae-1::2.1" non-standard="true"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:selfbilling-1@ae-1::2.1" non-standard="true"/>
     </businesscard>
     <businesscard>
       <participant scheme="iso6523-actorid-upis" value="0235:1004480354"/>
@@ -13202,7 +13224,9 @@
       </entity>
       <doctypeid scheme="busdox-docid-qns" value="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:peppol:edec:mls:1.0::2.1" displayname="Peppol Message Level Status v1.0" state="act"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:peppol:pint:selfbilling-1@ae-1::2.1" non-standard="true"/>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
+      <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:selfbilling-1@ae-1::2.1" non-standard="true"/>
     </businesscard>
     <businesscard>
       <participant scheme="iso6523-actorid-upis" value="0235:1040255034"/>
@@ -22595,7 +22619,7 @@
       <participant scheme="iso6523-actorid-upis" value="0235:1053340798"/>
       <entity countrycode="AE">
         <name name="KHAZNA DATA CENTER ELYSIUM 6 - L.L.C - S.P.C" language="en"/>
-        <contact name="KHAZNA DATA CENTER ELYSIUM 6 - L.L.C - S.P.C" phone="+971526722366" email="TONY.THOMAS@KHAZNA.AE"/>
+        <contact name="KHAZNA DATA CENTER ELYSIUM 6 - L.L.C - S.P.C" phone="+971526722366" email="E-Invoicing@khazna.ae"/>
         <regdate>2026-10-27</regdate>
       </entity>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
@@ -22679,7 +22703,7 @@
       <participant scheme="iso6523-actorid-upis" value="0235:1053414247"/>
       <entity countrycode="AE">
         <name name="KHAZNA DATA CENTER ELYSIUM 10 - L.L.C - S.P.C" language="en"/>
-        <contact name="KHAZNA DATA CENTER ELYSIUM 10 - L.L.C - S.P.C" phone="+971526722366" email="TONY.THOMAS@KHAZNA.AE"/>
+        <contact name="KHAZNA DATA CENTER ELYSIUM 10 - L.L.C - S.P.C" phone="+971526722366" email="E-Invoicing@khazna.ae"/>
         <regdate>2026-10-27</regdate>
       </entity>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
@@ -22691,7 +22715,7 @@
       <participant scheme="iso6523-actorid-upis" value="0235:1053453153"/>
       <entity countrycode="AE">
         <name name="KHAZNA DATA CENTER AL MAFRAQ 2 - L.L.C - S.P.C" language="en"/>
-        <contact name="KHAZNA DATA CENTER AL MAFRAQ 2 - L.L.C - S.P.C" phone="+971526722366" email="TONY.THOMAS@KHAZNA.AE"/>
+        <contact name="KHAZNA DATA CENTER AL MAFRAQ 2 - L.L.C - S.P.C" phone="+971526722366" email="E-Invoicing@khazna.ae"/>
         <regdate>2026-10-27</regdate>
       </entity>
       <doctypeid scheme="peppol-doctype-wildcard" value="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:peppol:pint:billing-1@ae-1::2.1" non-standard="true"/>
