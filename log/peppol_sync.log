@@ -1,14 +1,18 @@
-15:44:27 | Date: 2026-11-20 15:44:27
-15:44:27 | User: runner, Host: runnervm0hi8g, CWD: /home/runner/work/per_country/per_country
-15:44:27 | Starting sync operation
-15:44:27 | Partition plan: 3153 buckets from previous extracts, 0 rescaled
-15:44:30 | Deleted 12881 XML files from extracts/
-15:44:30 | download_xml: https://directory.peppol.eu/export/businesscards
-15:44:31 | download_xml: HTTP 200, Content-Encoding: gzip
-15:45:15 | download_xml: 18936 MB downloaded in 45s at 423 MB/s
-15:45:15 | Starting text processing: tmp/directory-export-business-cards.xml with 3 worker(s)
-15:49:14 | Partition NG/2026-11: new bucket, 1 files
-15:49:49 | Processed 9,695,235 business cards in 274s: 35360 cards/sec
-15:49:49 | Countries found: 126
-15:49:49 | Output files created: 12879
-15:49:49 | Report generated at docs/report.md
+14:54:15 | Date: 2026-11-21 14:54:15
+14:54:15 | User: runner, Host: runnervm0hi8g, CWD: /home/runner/work/per_country/per_country
+14:54:15 | Starting sync operation
+14:54:16 | Partition FR/2026-11: 128 -> 256 files (414.9 MB)
+14:54:16 | Partition SK/2026-11: 16 -> 32 files (46.1 MB)
+14:54:16 | Partition plan: 3151 buckets from previous extracts, 2 rescaled
+14:54:18 | Deleted 12879 XML files from extracts/
+14:54:18 | download_xml: https://directory.peppol.eu/export/businesscards
+14:54:20 | download_xml: HTTP 200, Content-Encoding: gzip
+14:55:42 | download_xml: 19021 MB downloaded in 83s at 228 MB/s
+14:55:42 | Starting text processing: tmp/directory-export-business-cards.xml with 3 worker(s)
+14:59:25 | Partition AE/2021-07: new bucket, 1 files
+14:59:26 | Partition 50/2026-11: new bucket, 1 files
+14:59:49 | Partition ZA/2026-11: new bucket, 1 files
+14:59:58 | Processed 9,731,653 business cards in 256s: 38043 cards/sec
+14:59:58 | Countries found: 126
+14:59:58 | Output files created: 13018
+14:59:58 | Report generated at docs/report.md
